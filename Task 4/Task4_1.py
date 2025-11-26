@@ -1,13 +1,14 @@
-import random
 import math
 
-t = random.randint(1, 10 ** 4)
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
 
-for n in range(t):
-    n = random.randint(1, 9)
-    a = []
-    for i in range(n):
-        a.append(random.randint(1, 9))
-        if i == n-1:
-            result = math.prod(a)
-            print(result)
+    if 0 in a:
+        a[a.index(0)] = 1  # увеличиваем один ноль до 1
+    else:
+        min_idx = a.index(min(a))
+        a[min_idx] += 1  # увеличиваем минимальную цифру
+
+    print(math.prod(a))

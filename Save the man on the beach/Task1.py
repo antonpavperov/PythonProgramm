@@ -26,9 +26,9 @@ theta1_radians = math.radians(theta1)
 x = d1_feet * math.tan(theta1_radians)
 
 L1 = math.sqrt(x ** 2 + d1_feet ** 2)
-
+print(L1)
 L2 = math.sqrt((h_feet - x) ** 2 + d2 ** 2)
-
+print(L2)
 v_swim = v_sand_fps / n
 
 t = 1 / v_sand_fps * (L1 + n * L2)

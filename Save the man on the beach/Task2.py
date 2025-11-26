@@ -1,17 +1,5 @@
 import math
 
-def validate_input(value, min_val=None, max_val=None):
-    try:
-        num = float(value)
-        if min_val is not None and num < min_val:
-            return False
-        if max_val is not None and num > max_val:
-            return False
-        return True
-    except (ValueError, TypeError):
-        return False
-
-
 def get_user_input():
     inputs = {}
 
@@ -24,25 +12,6 @@ def get_user_input():
         inputs['theta1'] = float(input("Введите направление движения спасателя по песку, theta1 (градусы)"))
     except ValueError:
         print("Ошибка: введите числа!")
-        return None
-
-    if not validate_input(inputs['d1'], min_val=0.1):
-        print("d1 должно быть положительным числом!")
-        return None
-    if not validate_input(inputs['d2'], min_val=0.1):
-        print("d2 должно быть положительным числом!")
-        return None
-    if not validate_input(inputs['h'], min_val=0.1):
-        print("h должно быть положительным числом!")
-        return None
-    if not validate_input(inputs['v_sand'], min_val=0.1):
-        print("v_sand должно быть положительным числом!")
-        return None
-    if not validate_input(inputs['n'], min_val=1.0):
-        print("n должно быть не меньше 1!")
-        return None
-    if not validate_input(inputs['theta1'], min_val=0, max_val=90):
-        print("theta1 должно быть от 0 до 90 градусов!")
         return None
 
     return inputs
