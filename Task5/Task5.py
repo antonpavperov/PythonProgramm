@@ -48,7 +48,6 @@ def init_file(file_name):
 
 
 def simulation_step(grid):
-    """Выполняет один шаг моделирования по правилам игры «Жизнь»."""
     rows, cols = len(grid), len(grid[0])
     new_grid = [[0 for _ in range(cols)] for _ in range(rows)]
 
@@ -57,18 +56,18 @@ def simulation_step(grid):
             live_count = live_neighbors(grid, r, c)
             cell = grid[r][c]
 
-            if cell > 0:  # клетка жива
+            if cell > 0:  # Клетка жива
                 if live_count == 2 or live_count == 3:
-                    new_grid[r][c] = cell + 1  # стареет
+                    new_grid[r][c] = cell + 1  # Стареет
                 else:
-                    new_grid[r][c] = 0  # умирает
-            else:  # клетка мертва
+                    new_grid[r][c] = 0  # Погибает
+            else:  # Клетка мертва
                 if live_count == 3:
-                    new_grid[r][c] = 1  # рождается
+                    new_grid[r][c] = 1  # Рождается
                 else:
                     new_grid[r][c] = 0
 
-    return new_grid
+    return new_grid  # Возвращаем новую сетку, а не исходную!
 
 
 def save_grid_to_file(grid, step, output_dir="output"):
